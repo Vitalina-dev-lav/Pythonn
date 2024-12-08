@@ -22,35 +22,39 @@
 # Вывод на консоль:
 # Ran 3 tests in 0.001s OK
 
-import runner
+import runner as r
 import unittest
 
 class RunnerTest(unittest.TestCase):
     def test_walk(self):
-        walk = runner.Runner('Дарья')
+        runner = r.Runner('Дарья')
         for i in range(10):
-            walk.walk()
-        self.assertEqual(walk.distance, 50)
+            runner.walk()
+        self.assertEqual(runner.distance, 50)
 
     # test_run - метод, в котором создаётся объект класса Runner с произвольным именем.
     # Далее вызовите метод run у этого объекта 10 раз. После чего методом assertEqual
     # сравните distance этого объекта со значением 100.
     def test_run(self):
-        run = runner.Runner('Антон')
+        runner = r.Runner('Антон')
         for i in range(10):
-            run.run()
-        self.assertEqual(run.distance, 100)
+            runner.run()
+        self.assertEqual(runner.distance, 100)
 
     # test_challenge - метод в котором создаются 2 объекта класса Runner с произвольными именами.
     # Далее 10 раз у объектов вызываются методы run и walk соответственно. Т.к. дистанции должны быть разными,
     # используйте метод assertNotEqual, чтобы убедится в неравенстве результатов.
     # Запустите кейс RunnerTest. В конечном итоге все 3 теста должны пройти проверку.
     def test_challenge(self):
-        walk2 = runner.Runner('Ангелина')
-        run2 = runner.Runner('Дмитрий')
+        runner1 = r.Runner('Ангелина')
+        runner2 = r.Runner('Дмитрий')
         for i in range(10):
-            walk2.walk()
-            run2.run()
-        self.assertEqual(run2.distance, walk2.distance)
+            runner1.walk()
+            runner2.run()
+        self.assertEqual(runner1.distance, runner2.distance)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
