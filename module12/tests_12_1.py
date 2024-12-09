@@ -22,39 +22,33 @@
 # Вывод на консоль:
 # Ran 3 tests in 0.001s OK
 
-import runner as r
+
 import unittest
+from runner import Runner
+
 
 class RunnerTest(unittest.TestCase):
     def test_walk(self):
-        runner = r.Runner('Дарья')
+        walker = Runner('Антон')
+        # for i in range(9):   # проверка неуспешного теста
         for i in range(10):
-            runner.walk()
-        self.assertEqual(runner.distance, 50)
+            walker.walk()
+        self.assertEqual(walker.distance, 50)
 
-    # test_run - метод, в котором создаётся объект класса Runner с произвольным именем.
-    # Далее вызовите метод run у этого объекта 10 раз. После чего методом assertEqual
-    # сравните distance этого объекта со значением 100.
     def test_run(self):
-        runner = r.Runner('Антон')
+        beg = Runner('Илья')
         for i in range(10):
-            runner.run()
-        self.assertEqual(runner.distance, 100)
+            beg.run()
+        self.assertEqual(beg.distance, 100)
 
-    # test_challenge - метод в котором создаются 2 объекта класса Runner с произвольными именами.
-    # Далее 10 раз у объектов вызываются методы run и walk соответственно. Т.к. дистанции должны быть разными,
-    # используйте метод assertNotEqual, чтобы убедится в неравенстве результатов.
-    # Запустите кейс RunnerTest. В конечном итоге все 3 теста должны пройти проверку.
     def test_challenge(self):
-        runner1 = r.Runner('Ангелина')
-        runner2 = r.Runner('Дмитрий')
+        walker = Runner('Den')
+        beg = Runner('al')
         for i in range(10):
-            runner1.walk()
-            runner2.run()
-        self.assertEqual(runner1.distance, runner2.distance)
+            walker.walk()
+            beg.run()
+        self.assertNotEqual(walker.distance, beg.distance)
 
 
 if __name__ == '__main__':
     unittest.main()
-
-
